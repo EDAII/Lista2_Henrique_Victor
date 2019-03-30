@@ -1,3 +1,4 @@
+from funcoes import *
 from ordenacoes import *
 from aluno import Aluno
 
@@ -15,12 +16,20 @@ def menu():
     print('')
 
 if __name__ == '__main__':
+    alunos = []
     while True:
         menu()
         opcao = int(input('Opcao: '))
         if opcao == 1:
             print('Opcao escolhida: Gerar Alunos Aleatoriamente')
-            # Funcao
+            tamanho = int(input('Digite quantos alunos voce quer criar: '))
+
+            while tamanho < 1:
+                tamanho = int(input('Tamanho nao pode ser menor que 1, tente novamente: '))
+            
+            gerar_alunos_aleatorios(alunos, tamanho)
+
+            print('Alunos gerados.')
         elif opcao == 2:
             print('Opcao escolhida: Ordenar com Selectioon Sort')
             # Funcao
@@ -35,6 +44,13 @@ if __name__ == '__main__':
             # Funcao
         elif opcao == 6:
             print('Opcao escolhida: Ver Ranking dos Alunos')
+            print("O ranking possui {} alunos".format(Aluno.get_totalAlunos()))
+            tamanho = int(input('Quantos alunos do ranking voce quer ver? '))
+
+            while tamanho > Aluno.get_totalAlunos():
+                tamanho = int(input('Tamanho nao pode ser menor que 1, tente novamente: '))
+
+            mostrar_ranking(alunos, tamanho)
             # Funcao
         elif opcao == 7:
             print('Opcao escolhida: Comparar Metodos de Ordenacao')
