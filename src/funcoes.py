@@ -5,15 +5,27 @@ from aluno import Aluno
 cursos = ['ADMINISTRACAO',
           'AGRONOMIA',
           'BIBLIOTECONOMIA',
-          'CIENCIA DA COMPUT.',
+          'BIOTECNOLOGIA',
+          'CIENCIA DA COMPUTACAO',
           'DIREITO',
           'ENFERMAGEM',
+          'ENGENHARIA AERONAUTICA',
+          'ENGENHARIA AGRONOMICA',
+          'ENGENHARIA AMBIENTAL',
           'ENGENHARIA CIVIL',
+          'ENGENHARIA DE MINAS',
+          'ENGENHARIA ELETRICA',
+          'ENGENHARIA FLORESTAL',
           'ENGENHARIA MECANICA',
+          'ENGENHARIA MECATRONICA',
+          'ENGENHARIA QUIMICA',
           'ESTATISTICA',
           'FARMACIA',
           'FILOSOFIA',
           'FISICA',
+          'GEOFÍSICA',
+          'GEOGRAFIA',
+          'GEOLOGIA',
           'HISTORIA',
           'JORNALISMO',
           'MATEMATICA',
@@ -23,8 +35,11 @@ cursos = ['ADMINISTRACAO',
           'NUTRICAO',
           'ODONTOLOGIA',
           'PEDAGOGIA',
+          'PUBLICIDADE E PROPAGANDA',
           'QUIMICA',
-          'TURISMO'
+          'RELACOES INTERNACIONAIS',
+          'TURISMO',
+          'ZOOTECNIA'
           ]
 
 def gerar_alunos_aleatorios(alunos, tamanho):
@@ -49,16 +64,16 @@ def gerar_alunos_aleatorios(alunos, tamanho):
         alunos.append(aluno)
 
 def mostrar_ranking(alunos, tamanho):
-    print('------------------------------------------------------------------------------------------')
-    print("|{:^88}|".format("RANKING DOS {} MELHORES ALUNOS".format(tamanho)))
-    print('------------------------------------------------------------------------------------------')
-    print('|  RANK  |    NOME    | MAT  | LING | HUM  | CIEN | RED  | MEDIA  |    CURSO DESEJADO    |')
-    print('------------------------------------------------------------------------------------------')
+    print('----------------------------------------------------------------------------------------------')
+    print("|{:^92}|".format("RANKING DOS {} MELHORES ALUNOS".format(tamanho)))
+    print('----------------------------------------------------------------------------------------------')
+    print('|  RANK  |    NOME    | MAT  | LING | HUM  | CIEN | RED  | MEDIA  |      CURSO DESEJADO      |')
+    print('----------------------------------------------------------------------------------------------')
 
     for i in range(tamanho):
-        print("| {:^6} | {:^10} | {:^4} | {:^4} | {:^4} | {:^4} | {:^4} | {:^6} | {:^20} |".format(
+        print("| {:^6} | {:^10} | {:^4} | {:^4} | {:^4} | {:^4} | {:^4} | {:^6} | {:^24} |".format(
             i+1, alunos[i].nome, alunos[i].notaMat, alunos[i].notaLing, alunos[i].notaHum,
             alunos[i].notaCien, alunos[i].notaRed, alunos[i].media, alunos[i].curso))
-        print('------------------------------------------------------------------------------------------')
+        print('----------------------------------------------------------------------------------------------')
     
     print()
