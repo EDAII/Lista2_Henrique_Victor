@@ -44,6 +44,6 @@ O código oferece 4 maneiras de ordenar os alunos. As 4 maneiras são:
 Os alunos serão ordenados com base na média das notas, em que o aluno com a maior média vem primeiro. Em caso de empate nas médias, a ordem alfabética será aplicada para determinar quem virá primeiro.  
 A média é calculada da seguinte maneira:
 
-$$Media = \frac{MAT + LING + HUM + CIEN + RED}{5}$$
+Media = (MAT + LING + HUM + CIEN + RED) / 5
 
 O usuário também pode comparar a eficiência dos algoritmos de ordenação, usando-os individualmente ou selecionando a opção "Comparar Metodos de Ordenacao".
