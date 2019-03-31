@@ -34,7 +34,7 @@ def gerar_alunos_aleatorios(alunos, tamanho):
     
     for _ in range (tamanho):
         nome = ''.join([random.choice(maiuscula)])
-        nome += ''.join(random.choice(minuscula) for _ in range(9))
+        nome += ''.join(random.choice(minuscula) for _ in range(random.randrange(3, 10)))
 
         curso = cursos[random.randrange(0, len(cursos))]
         
@@ -50,13 +50,13 @@ def gerar_alunos_aleatorios(alunos, tamanho):
 
 def mostrar_ranking(alunos, tamanho):
     print('------------------------------------------------------------------------------------------')
-    print("|                             RANKING DOS {} MELHORES ALUNOS                             |".format(Aluno.get_totalAlunos()))
+    print("|{:^88}|".format("RANKING DOS {} MELHORES ALUNOS".format(tamanho)))
     print('------------------------------------------------------------------------------------------')
-    print('|  POS   |    NOME    | MAT  | LING | HUM  | CIEN | RED  | MEDIA  |    CURSO DESEJADO    |')
+    print('|  RANK  |    NOME    | MAT  | LING | HUM  | CIEN | RED  | MEDIA  |    CURSO DESEJADO    |')
     print('------------------------------------------------------------------------------------------')
 
     for i in range(tamanho):
-        print("| {:06} | {} | {:04} | {:04} | {:04} | {:04} | {:04} | {:06.1f} | {:^20} |".format(
+        print("| {:^6} | {:^10} | {:04} | {:04} | {:04} | {:04} | {:04} | {:06.1f} | {:^20} |".format(
             i+1, alunos[i].nome, alunos[i].notaMat, alunos[i].notaLing, alunos[i].notaHum,
             alunos[i].notaCien, alunos[i].notaRed, alunos[i].media, alunos[i].curso))
         print('------------------------------------------------------------------------------------------')

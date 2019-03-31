@@ -44,14 +44,13 @@ if __name__ == '__main__':
             # Funcao
         elif opcao == 6:
             print('Opcao escolhida: Ver Ranking dos Alunos')
-            print("O ranking possui {} alunos".format(Aluno.get_totalAlunos()))
+            print("O ranking possui {} alunos".format(len(alunos)))
             tamanho = int(input('Quantos alunos do ranking voce quer ver? '))
 
-            while tamanho > Aluno.get_totalAlunos():
-                tamanho = int(input('Tamanho nao pode ser menor que 1, tente novamente: '))
+            while tamanho > len(alunos):
+                tamanho = int(input('Tamanho nao pode ser maior que o maximo de alunos, tente novamente: '))
 
             mostrar_ranking(alunos, tamanho)
-            # Funcao
         elif opcao == 7:
             print('Opcao escolhida: Comparar Metodos de Ordenacao')
             # Funcao
