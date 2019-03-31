@@ -56,7 +56,7 @@ def mostrar_ranking(alunos, tamanho):
     print('------------------------------------------------------------------------------------------')
 
     for i in range(tamanho):
-        print("| {:^6} | {:^10} | {:04} | {:04} | {:04} | {:04} | {:04} | {:06.1f} | {:^20} |".format(
+        print("| {:^6} | {:^10} | {:^4} | {:^4} | {:^4} | {:^4} | {:^4} | {:^6} | {:^20} |".format(
             i+1, alunos[i].nome, alunos[i].notaMat, alunos[i].notaLing, alunos[i].notaHum,
             alunos[i].notaCien, alunos[i].notaRed, alunos[i].media, alunos[i].curso))
         print('------------------------------------------------------------------------------------------')

@@ -17,6 +17,7 @@ def menu():
 
 if __name__ == '__main__':
     alunos = []
+    ordenado = False
     while True:
         menu()
         opcao = int(input('Opcao: '))
@@ -30,27 +31,39 @@ if __name__ == '__main__':
             gerar_alunos_aleatorios(alunos, tamanho)
 
             print('Alunos gerados.')
+            ordenado = False
         elif opcao == 2:
             print('Opcao escolhida: Ordenar com Selectioon Sort')
-            # Funcao
+            selection_sort(alunos)
+            print('A Ordenacao terminou.')
+            ordenado = True
         elif opcao == 3:
             print('Opcao escolhida: Ordenar com Insertion Sort')
-            # Funcao
+            insertion_sort(alunos)
+            print('A Ordenacao terminou.')
+            ordenado = True
         elif opcao == 4:
             print('Opcao escolhida: Ordenar com Bubble Sort')
-            # Funcao
+            bubble_sort(alunos)
+            print('A Ordenacao terminou.')
+            ordenado = True
         elif opcao == 5:
             print('Opcao escolhida: Ordenar com Shell Sort')
-            # Funcao
+            shell_sort(alunos)
+            print('A Ordenacao terminou.')
+            ordenado = True
         elif opcao == 6:
-            print('Opcao escolhida: Ver Ranking dos Alunos')
-            print("O ranking possui {} alunos".format(len(alunos)))
-            tamanho = int(input('Quantos alunos do ranking voce quer ver? '))
+            if ordenado == True:
+                print('Opcao escolhida: Ver Ranking dos Alunos')
+                print("O ranking possui {} alunos".format(len(alunos)))
+                tamanho = int(input('Quantos alunos do ranking voce quer ver? '))
 
-            while tamanho > len(alunos):
-                tamanho = int(input('Tamanho nao pode ser maior que o maximo de alunos, tente novamente: '))
+                while tamanho > len(alunos):
+                    tamanho = int(input('Tamanho nao pode ser maior que o maximo de alunos, tente novamente: '))
 
-            mostrar_ranking(alunos, tamanho)
+                mostrar_ranking(alunos, tamanho)
+            else:
+                print('Primeiro use algum mecanismo de ordenacao para ver o ranking.')
         elif opcao == 7:
             print('Opcao escolhida: Comparar Metodos de Ordenacao')
             # Funcao

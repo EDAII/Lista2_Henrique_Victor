@@ -21,3 +21,9 @@ class Aluno:
             return self.nome < concorrente.nome # Ordenar em ordem alfabetica
 
         return self.media > concorrente.media # Maior media vem primeiro
+    
+    def __lt__(self, concorrente):
+        if(self.media == concorrente.media):
+            return self.nome > concorrente.nome # Ordenar em ordem nao-alfabetica
+
+        return self.media < concorrente.media # Maior media vem depois
