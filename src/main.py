@@ -33,10 +33,7 @@ if __name__ == '__main__':
                 tamanho = int(input('Tamanho nao pode ser menor que 1, tente novamente: '))
             
             gerar_alunos_aleatorios(alunos, tamanho)
-            desordenado = alunos
-
-            print(desordenado)
-            print(alunos)
+            desordenado = alunos.copy()
 
             print('{} Alunos gerados.\n\n'.format(len(alunos)))
             clear()
@@ -79,6 +76,7 @@ if __name__ == '__main__':
                 inicio = time.time()
                 bubble_sort(alunos)
                 fim = time.time()
+                tempo_total = fim - inicio
                 print('\nTempo decorrido:',round(tempo_total, 6), 's')
                 print('A Ordenacao terminou.')
                 ordenado = True
@@ -92,6 +90,7 @@ if __name__ == '__main__':
                 inicio = time.time()
                 shell_sort(alunos)
                 fim = time.time()
+                tempo_total = fim - inicio
                 print('\nTempo decorrido:',round(tempo_total, 6), 's')
                 print('A Ordenacao terminou.')
                 ordenado = True
@@ -118,13 +117,12 @@ if __name__ == '__main__':
             if len(alunos) > 0:
 
                 lista_tempos = {}
-                alunos = desordenado
                 os.system('clear')
 
                 print('Comparação entre os Metodos de Ordenacao\n')
 
                 # Selection Sort
-                alunos = desordenado
+                alunos = desordenado.copy()
                 print('Selection Sort')
                 inicio = time.time()
                 selection_sort(alunos)
@@ -135,7 +133,7 @@ if __name__ == '__main__':
                 print('')
 
                 #Insertion Sort
-                alunos = desordenado
+                alunos = desordenado.copy()
                 print('Insertion Sort')
                 inicio = time.time()
                 insertion_sort(alunos)
@@ -144,10 +142,8 @@ if __name__ == '__main__':
                 print('Tempo decorrido:', lista_tempos['Insertion Sort'], 's')
                 print('')
 
-
-
                 #Buble Sort
-                alunos = desordenado
+                alunos = desordenado.copy()
                 print("Bubble Sort")
                 inicio = time.time()
                 bubble_sort(alunos)
@@ -156,10 +152,8 @@ if __name__ == '__main__':
                 print('Tempo decorrido:', lista_tempos['Bubble Sort'], 's')
                 print('')
 
-
-
                 #Shell Sort
-                alunos = desordenado
+                alunos = desordenado.copy()
                 print("Shell Sort")
                 inicio = time.time()
                 shell_sort(alunos)
@@ -172,7 +166,6 @@ if __name__ == '__main__':
                 fig, axs = plt.subplots()
                 axs.bar(lista_tempos.keys(), lista_tempos.values())
                 axs.set(xlabel='Tipos de ordenação', ylabel='Tempo decorrido (s)',title='Comparação')
-                fig.savefig("comparacao.png")
                 plt.show()
                 
                 clear()
