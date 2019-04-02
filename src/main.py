@@ -1,9 +1,10 @@
 from funcoes import *
 from ordenacoes import *
+import time
 from aluno import Aluno
 
 def menu():
-    print('ESCOLHA UMA OPCAO:\n')
+    print('\n\nESCOLHA UMA OPCAO:\n')
 
     print('1. Gerar Alunos Aleatoriamente')
     print('2. Cadastrar Aluno Individual')
@@ -38,16 +39,24 @@ if __name__ == '__main__':
             # Funcao
         elif opcao == 3:
             if len(alunos) > 0:
-                print('Opcao escolhida: Ordenar com Selectioon Sort')
+                print('Opcao escolhida: Ordenar com Selection Sort')
+                inicio = time.time()
                 selection_sort(alunos)
-                print('A Ordenacao terminou.')
+                fim = time.time()
+                tempo_total = fim - inicio
+                print('\nTempo decorrido:',round(tempo_total, 6))
+                print('A Ordenacao terminou.\n')
                 ordenado = True
             else:
                 print('Nao ha nenhum aluno cadastrado.')
         elif opcao == 4:
             if len(alunos) > 0:
                 print('Opcao escolhida: Ordenar com Insertion Sort')
+                inicio = time.time()
                 insertion_sort(alunos)
+                fim = time.time()
+                tempo_total = fim - inicio
+                print('\nTempo decorrido:',round(tempo_total, 6))
                 print('A Ordenacao terminou.')
                 ordenado = True
             else:
@@ -55,7 +64,10 @@ if __name__ == '__main__':
         elif opcao == 5:
             if len(alunos) > 0:
                 print('Opcao escolhida: Ordenar com Bubble Sort')
+                inicio = time.time()
                 bubble_sort(alunos)
+                fim = time.time()
+                print('\nTempo decorrido:',round(tempo_total, 6))
                 print('A Ordenacao terminou.')
                 ordenado = True
             else:
@@ -63,7 +75,10 @@ if __name__ == '__main__':
         elif opcao == 6:
             if len(alunos) > 0:
                 print('Opcao escolhida: Ordenar com Shell Sort')
+                inicio = time.time()
                 shell_sort(alunos)
+                fim = time.time()
+                print('\nTempo decorrido:',round(tempo_total, 6))
                 print('A Ordenacao terminou.')
                 ordenado = True
             else:
