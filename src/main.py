@@ -4,7 +4,8 @@ import time
 from aluno import Aluno
 
 def menu():
-    print('\n\nESCOLHA UMA OPCAO:\n')
+    os.system('clear')
+    print('ESCOLHA UMA OPCAO:\n')
 
     print('1. Gerar Alunos Aleatoriamente')
     print('2. Cadastrar Aluno Individual')
@@ -19,6 +20,7 @@ def menu():
 
 if __name__ == '__main__':
     alunos = []
+    desordenado = []
     ordenado = False
     while True:
         menu()
@@ -33,10 +35,15 @@ if __name__ == '__main__':
             gerar_alunos_aleatorios(alunos, tamanho)
             desordenado = alunos
 
-            print('Alunos gerados.')
+            print(desordenado)
+            print(alunos)
+
+            print('{} Alunos gerados.\n\n'.format(len(alunos)))
+            clear()
             ordenado = False
         elif opcao == 2:
             print('Opcao escolhida: Cadastrar Aluno Individual')
+            clear()
             # Funcao
         elif opcao == 3:
             if len(alunos) > 0:
@@ -48,8 +55,10 @@ if __name__ == '__main__':
                 print('\nTempo decorrido:',round(tempo_total, 6), 's')
                 print('A Ordenacao terminou.\n')
                 ordenado = True
+                clear()
             else:
                 print('Nao ha nenhum aluno cadastrado.')
+                clear()
         elif opcao == 4:
             if len(alunos) > 0:
                 print('Opcao escolhida: Ordenar com Insertion Sort')
@@ -60,8 +69,10 @@ if __name__ == '__main__':
                 print('\nTempo decorrido:',round(tempo_total, 6) , 's')
                 print('A Ordenacao terminou.')
                 ordenado = True
+                clear()
             else:
                 print('Nao ha nenhum aluno cadastrado.')
+                clear()
         elif opcao == 5:
             if len(alunos) > 0:
                 print('Opcao escolhida: Ordenar com Bubble Sort')
@@ -71,8 +82,10 @@ if __name__ == '__main__':
                 print('\nTempo decorrido:',round(tempo_total, 6), 's')
                 print('A Ordenacao terminou.')
                 ordenado = True
+                clear()
             else:
                 print('Nao ha nenhum aluno cadastrado.')
+                clear()
         elif opcao == 6:
             if len(alunos) > 0:
                 print('Opcao escolhida: Ordenar com Shell Sort')
@@ -82,8 +95,10 @@ if __name__ == '__main__':
                 print('\nTempo decorrido:',round(tempo_total, 6), 's')
                 print('A Ordenacao terminou.')
                 ordenado = True
+                clear()
             else:
                 print('Nao ha nenhum aluno cadastrado.')
+                clear()
         elif opcao == 7:
             if ordenado == True:
                 print('Opcao escolhida: Ver Ranking dos Alunos')
@@ -94,16 +109,19 @@ if __name__ == '__main__':
                     tamanho = int(input('Tamanho nao pode ser maior que o maximo de alunos, tente novamente: '))
 
                 mostrar_ranking(alunos, tamanho)
+                clear()
             else:
                 print('Primeiro use algum mecanismo de ordenacao para ver o ranking.')
+                clear()
         elif opcao == 8:
             
             if len(alunos) > 0:
 
-                lista_tempos = []
+                lista_tempos = {}
                 alunos = desordenado
-                
-                print('Opcao escolhida: Comparar Metodos de Ordenacao')
+                os.system('clear')
+
+                print('Comparação entre os Metodos de Ordenacao\n')
 
                 # Selection Sort
                 alunos = desordenado
@@ -111,9 +129,10 @@ if __name__ == '__main__':
                 inicio = time.time()
                 selection_sort(alunos)
                 fim = time.time()
-                lista_tempos.append(fim - inicio)
-                print('\nTempo decorrido:',round(lista_tempos[0], 6), 's')
-                print('A Ordenacao terminou.\n')
+                
+                lista_tempos['Selection Sort'] = (fim - inicio)
+                print('Tempo decorrido:',lista_tempos['Selection Sort'], 's')
+                print('')
 
                 #Insertion Sort
                 alunos = desordenado
@@ -121,9 +140,10 @@ if __name__ == '__main__':
                 inicio = time.time()
                 insertion_sort(alunos)
                 fim = time.time()
-                lista_tempos.append(fim - inicio)
-                print('\nTempo decorrido:',round(lista_tempos[1], 6) , 's')
-                print('A Ordenacao terminou.')
+                lista_tempos['Insertion Sort'] = (fim - inicio)
+                print('Tempo decorrido:', lista_tempos['Insertion Sort'], 's')
+                print('')
+
 
 
                 #Buble Sort
@@ -132,9 +152,10 @@ if __name__ == '__main__':
                 inicio = time.time()
                 bubble_sort(alunos)
                 fim = time.time()
-                lista_tempos.append(fim - inicio)
-                print('\nTempo decorrido:',round(lista_tempos[2], 6), 's')
-                print('A Ordenacao terminou.')
+                lista_tempos['Bubble Sort'] = (fim - inicio)
+                print('Tempo decorrido:', lista_tempos['Bubble Sort'], 's')
+                print('')
+
 
 
                 #Shell Sort
@@ -143,11 +164,18 @@ if __name__ == '__main__':
                 inicio = time.time()
                 shell_sort(alunos)
                 fim = time.time()
-                lista_tempos.append(fim - inicio)
-                print('\nTempo decorrido:',round(lista_tempos[3], 6), 's')
-                print('A Ordenacao terminou.')
+                lista_tempos['Shell Sort'] = (fim - inicio)
+                print('Tempo decorrido:', lista_tempos['Shell Sort'], 's')
+                print('')
 
 
+                fig, axs = plt.subplots()
+                axs.bar(lista_tempos.keys(), lista_tempos.values())
+                axs.set(xlabel='Tipos de ordenação', ylabel='Tempo decorrido (s)',title='Comparação')
+                fig.savefig("comparacao.png")
+                plt.show()
+                
+                clear()
                 
             else:
                 print('Não há nenhuma aluno cadastrado')

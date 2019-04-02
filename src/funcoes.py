@@ -1,5 +1,8 @@
 import random
 import string
+import os
+import matplotlib
+import matplotlib.pyplot as plt
 from aluno import Aluno
 
 cursos = ['ADMINISTRACAO',
@@ -77,5 +80,10 @@ def mostrar_ranking(alunos, tamanho):
         print('----------------------------------------------------------------------------------------------')
     
     print()
+
+
+def clear():
+    input("Pressione uma tecla para continuar...")
+    os.system('clear')
 
     
