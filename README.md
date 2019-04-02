@@ -5,6 +5,17 @@
 
 <br>
 
+
+### Instalações necessárias
+- No teminal, digite o seguinte comando:
+  ```bash
+    $ pip3 install matplotlib --user
+  ```
+- Logo após a instalação, digite também:
+  ```bash
+    $ sudo apt-get install python3-tk
+  ```
+
 ### Instruções de uso
 
 - No terminal, vá até o diretório do exercício, que contém, além de arquivos como o README, a pasta "src"
