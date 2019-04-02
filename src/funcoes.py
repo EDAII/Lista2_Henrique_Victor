@@ -81,6 +81,18 @@ def mostrar_ranking(alunos, tamanho):
     
     print()
 
+def cadastrar_aluno(alunos):
+    nome = input("Digite o nome do aluno:")
+    curso = input("Digite o nome do curso:")
+    notaMat = int(input("Digita a nota de matemática:"))
+    notaLing = int(input("Digite a nota de Liguagens:"))
+    notaHum = int(input("Digite a nota de Ciências Humana:"))
+    notaCien = int(input("Digite a nota de Ciências Naturais:"))
+    notaRed = int(input("Digite a nota da redação:"))
+    
+    aluno = Aluno(nome, curso, notaMat, notaLing, notaHum, notaCien, notaRed)
+    alunos.append(aluno)
+    print('\nAluno cadastrado com sucesso')
 
 def clear():
     input("Pressione uma tecla para continuar...")

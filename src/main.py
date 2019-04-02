@@ -13,8 +13,9 @@ def menu():
     print('4. Ordenar com Insertion Sort')
     print('5. Ordenar com Bubble Sort')
     print('6. Ordenar com Shell Sort')
-    print('7. Ver Ranking dos Alunos')
-    print('8. Comparar Metodos de Ordenacao')
+    print('7. Ver Ranking ordenado dos Alunos')
+    print('8. Ver Ranking desordenado dos Alunos')
+    print('9. Comparar Metodos de Ordenacao')
     print('0. Encerrar Programa')
     print('')
 
@@ -40,6 +41,7 @@ if __name__ == '__main__':
             ordenado = False
         elif opcao == 2:
             print('Opcao escolhida: Cadastrar Aluno Individual')
+            cadastrar_aluno(alunos)
             clear()
             # Funcao
         elif opcao == 3:
@@ -112,7 +114,25 @@ if __name__ == '__main__':
             else:
                 print('Primeiro use algum mecanismo de ordenacao para ver o ranking.')
                 clear()
+        
         elif opcao == 8:
+            if len(alunos) > 0:
+                print('Opcao escolhida: Ver Ranking desordenado dos Alunos')
+                print("O ranking possui {} alunos".format(len(alunos)))
+                tamanho = int(input('Quantos alunos do ranking voce quer ver? '))
+
+                while tamanho > len(alunos):
+                    tamanho = int(input('Tamanho nao pode ser maior que o maximo de alunos, tente novamente: '))
+                
+                mostrar_ranking(desordenado, tamanho)
+                clear()
+            else:
+                print('Não há alunos cadastrados!')
+                clear()
+
+
+
+        elif opcao == 9:
             
             if len(alunos) > 0:
 
@@ -162,10 +182,17 @@ if __name__ == '__main__':
                 print('Tempo decorrido:', lista_tempos['Shell Sort'], 's')
                 print('')
 
+                print(lista_tempos)
 
-                fig, axs = plt.subplots()
-                axs.bar(lista_tempos.keys(), lista_tempos.values())
-                axs.set(xlabel='Tipos de ordenação', ylabel='Tempo decorrido (s)',title='Comparação')
+
+                tipos = ['Selection Sort', 'Insertion Sort', 'Bubble Sort', 'Shell Sort']
+                tempos = [lista_tempos['Selection Sort'], lista_tempos['Insertion Sort'], lista_tempos['Bubble Sort'], lista_tempos['Shell Sort']]
+
+
+
+                plt.figure(1)
+                plt.bar(tipos, tempos)
+                plt.suptitle("Comparações das ordenações")
                 plt.show()
                 
                 clear()
