@@ -31,6 +31,7 @@ if __name__ == '__main__':
                 tamanho = int(input('Tamanho nao pode ser menor que 1, tente novamente: '))
             
             gerar_alunos_aleatorios(alunos, tamanho)
+            desordenado = alunos
 
             print('Alunos gerados.')
             ordenado = False
@@ -44,7 +45,7 @@ if __name__ == '__main__':
                 selection_sort(alunos)
                 fim = time.time()
                 tempo_total = fim - inicio
-                print('\nTempo decorrido:',round(tempo_total, 6, ), 's')
+                print('\nTempo decorrido:',round(tempo_total, 6), 's')
                 print('A Ordenacao terminou.\n')
                 ordenado = True
             else:
@@ -56,7 +57,7 @@ if __name__ == '__main__':
                 insertion_sort(alunos)
                 fim = time.time()
                 tempo_total = fim - inicio
-                print('\nTempo decorrido:',round(tempo_total, 6, ) , 's')
+                print('\nTempo decorrido:',round(tempo_total, 6) , 's')
                 print('A Ordenacao terminou.')
                 ordenado = True
             else:
@@ -67,7 +68,7 @@ if __name__ == '__main__':
                 inicio = time.time()
                 bubble_sort(alunos)
                 fim = time.time()
-                print('\nTempo decorrido:',round(tempo_total, 6, ), 's')
+                print('\nTempo decorrido:',round(tempo_total, 6), 's')
                 print('A Ordenacao terminou.')
                 ordenado = True
             else:
@@ -78,7 +79,7 @@ if __name__ == '__main__':
                 inicio = time.time()
                 shell_sort(alunos)
                 fim = time.time()
-                print('\nTempo decorrido:',round(tempo_total, 6, ), 's')
+                print('\nTempo decorrido:',round(tempo_total, 6), 's')
                 print('A Ordenacao terminou.')
                 ordenado = True
             else:
@@ -96,9 +97,61 @@ if __name__ == '__main__':
             else:
                 print('Primeiro use algum mecanismo de ordenacao para ver o ranking.')
         elif opcao == 8:
-            print('Opcao escolhida: Comparar Metodos de Ordenacao')
             
-            
+            if len(alunos) > 0:
+
+                lista_tempos = []
+                alunos = desordenado
+                
+                print('Opcao escolhida: Comparar Metodos de Ordenacao')
+
+                # Selection Sort
+                alunos = desordenado
+                print('Selection Sort')
+                inicio = time.time()
+                selection_sort(alunos)
+                fim = time.time()
+                lista_tempos.append(fim - inicio)
+                print('\nTempo decorrido:',round(lista_tempos[0], 6), 's')
+                print('A Ordenacao terminou.\n')
+
+                #Insertion Sort
+                alunos = desordenado
+                print('Insertion Sort')
+                inicio = time.time()
+                insertion_sort(alunos)
+                fim = time.time()
+                lista_tempos.append(fim - inicio)
+                print('\nTempo decorrido:',round(lista_tempos[1], 6) , 's')
+                print('A Ordenacao terminou.')
+
+
+                #Buble Sort
+                alunos = desordenado
+                print("Bubble Sort")
+                inicio = time.time()
+                bubble_sort(alunos)
+                fim = time.time()
+                lista_tempos.append(fim - inicio)
+                print('\nTempo decorrido:',round(lista_tempos[2], 6), 's')
+                print('A Ordenacao terminou.')
+
+
+                #Shell Sort
+                alunos = desordenado
+                print("Shell Sort")
+                inicio = time.time()
+                shell_sort(alunos)
+                fim = time.time()
+                lista_tempos.append(fim - inicio)
+                print('\nTempo decorrido:',round(lista_tempos[3], 6), 's')
+                print('A Ordenacao terminou.')
+
+
+                
+            else:
+                print('Não há nenhuma aluno cadastrado')
+
 
         elif opcao == 0:
             print('Encerrando programa')
