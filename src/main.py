@@ -44,7 +44,7 @@ if __name__ == '__main__':
                 selection_sort(alunos)
                 fim = time.time()
                 tempo_total = fim - inicio
-                print('\nTempo decorrido:',round(tempo_total, 6))
+                print('\nTempo decorrido:',round(tempo_total, 6, ), 's')
                 print('A Ordenacao terminou.\n')
                 ordenado = True
             else:
@@ -56,7 +56,7 @@ if __name__ == '__main__':
                 insertion_sort(alunos)
                 fim = time.time()
                 tempo_total = fim - inicio
-                print('\nTempo decorrido:',round(tempo_total, 6))
+                print('\nTempo decorrido:',round(tempo_total, 6, ) , 's')
                 print('A Ordenacao terminou.')
                 ordenado = True
             else:
@@ -67,7 +67,7 @@ if __name__ == '__main__':
                 inicio = time.time()
                 bubble_sort(alunos)
                 fim = time.time()
-                print('\nTempo decorrido:',round(tempo_total, 6))
+                print('\nTempo decorrido:',round(tempo_total, 6, ), 's')
                 print('A Ordenacao terminou.')
                 ordenado = True
             else:
@@ -78,7 +78,7 @@ if __name__ == '__main__':
                 inicio = time.time()
                 shell_sort(alunos)
                 fim = time.time()
-                print('\nTempo decorrido:',round(tempo_total, 6))
+                print('\nTempo decorrido:',round(tempo_total, 6, ), 's')
                 print('A Ordenacao terminou.')
                 ordenado = True
             else:
@@ -97,7 +97,9 @@ if __name__ == '__main__':
                 print('Primeiro use algum mecanismo de ordenacao para ver o ranking.')
         elif opcao == 8:
             print('Opcao escolhida: Comparar Metodos de Ordenacao')
-            # Funcao
+            
+            
+
         elif opcao == 0:
             print('Encerrando programa')
             break
