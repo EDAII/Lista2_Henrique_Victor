@@ -36,14 +36,14 @@ if __name__ == '__main__':
             gerar_alunos_aleatorios(alunos, tamanho)
             desordenado = alunos.copy()
 
-            print('{} Alunos gerados.\n\n'.format(len(alunos)))
-            clear()
+            print('{} Alunos gerados.\n'.format(len(alunos)))
             ordenado = False
+            clear()
         elif opcao == 2:
             print('Opcao escolhida: Cadastrar Aluno Individual')
             cadastrar_aluno(alunos)
+            ordenado = False
             clear()
-            # Funcao
         elif opcao == 3:
             if len(alunos) > 0:
                 print('Opcao escolhida: Ordenar com Selection Sort')
@@ -66,7 +66,7 @@ if __name__ == '__main__':
                 fim = time.time()
                 tempo_total = fim - inicio
                 print('\nTempo decorrido:',round(tempo_total, 6) , 's')
-                print('A Ordenacao terminou.')
+                print('A Ordenacao terminou.\n')
                 ordenado = True
                 clear()
             else:
@@ -80,7 +80,7 @@ if __name__ == '__main__':
                 fim = time.time()
                 tempo_total = fim - inicio
                 print('\nTempo decorrido:',round(tempo_total, 6), 's')
-                print('A Ordenacao terminou.')
+                print('A Ordenacao terminou.\n')
                 ordenado = True
                 clear()
             else:
@@ -94,7 +94,7 @@ if __name__ == '__main__':
                 fim = time.time()
                 tempo_total = fim - inicio
                 print('\nTempo decorrido:',round(tempo_total, 6), 's')
-                print('A Ordenacao terminou.')
+                print('A Ordenacao terminou.\n')
                 ordenado = True
                 clear()
             else:
@@ -114,7 +114,6 @@ if __name__ == '__main__':
             else:
                 print('Primeiro use algum mecanismo de ordenacao para ver o ranking.')
                 clear()
-        
         elif opcao == 8:
             if len(alunos) > 0:
                 print('Opcao escolhida: Ver Ranking desordenado dos Alunos')
@@ -129,9 +128,6 @@ if __name__ == '__main__':
             else:
                 print('Não há alunos cadastrados!')
                 clear()
-
-
-
         elif opcao == 9:
             
             if len(alunos) > 0:
@@ -182,17 +178,12 @@ if __name__ == '__main__':
                 print('Tempo decorrido:', lista_tempos['Shell Sort'], 's')
                 print('')
 
-                print(lista_tempos)
-
-
                 tipos = ['Selection Sort', 'Insertion Sort', 'Bubble Sort', 'Shell Sort']
                 tempos = [lista_tempos['Selection Sort'], lista_tempos['Insertion Sort'], lista_tempos['Bubble Sort'], lista_tempos['Shell Sort']]
 
-
-
                 plt.figure(1)
                 plt.bar(tipos, tempos)
-                plt.suptitle("Comparações das ordenações")
+                plt.suptitle('Tempo em segundos para ordenar {} alunos'.format(len(alunos)))
                 plt.show()
                 
                 clear()
