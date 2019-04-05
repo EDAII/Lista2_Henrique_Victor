@@ -114,6 +114,80 @@ def cadastrar_aluno(alunos):
     alunos.append(aluno)
     print('\nAluno cadastrado com sucesso\n')
 
+def grafico_medias(alunos):
+    print('Calculando media dos alunos e dividindo eles em grupos...')
+    n = len(alunos)
+    notas = ['0-100',
+             '101-200',
+             '201-300',
+             '301-400',
+             '401-500',
+             '501-600',
+             '601-700',
+             '701-800',
+             '801-900',
+             '901-1000'
+             ]
+
+    lista_notas = {'0-100' : 0,
+                       '101-200' : 0,
+                       '201-300' : 0,
+                       '301-400' : 0,
+                       '401-500' : 0,
+                       '501-600' : 0,
+                       '601-700' : 0,
+                       '701-800' : 0,
+                       '801-900' : 0,
+                       '901-1000' : 0}
+    
+    for i in range(n):
+        if 0 <= alunos[i].media <= 100:
+            lista_notas['0-100'] += 1
+        elif 101 <= alunos[i].media <= 200:
+            lista_notas['101-200'] += 1
+        elif 201 <= alunos[i].media <= 300:
+            lista_notas['201-300'] += 1
+        elif 301 <= alunos[i].media <= 400:
+            lista_notas['301-400'] += 1
+        elif 401 <= alunos[i].media <= 500:
+            lista_notas['401-500'] += 1
+        elif 501 <= alunos[i].media <= 600:
+            lista_notas['501-600'] += 1
+        elif 601 <= alunos[i].media <= 700:
+            lista_notas['601-700'] += 1
+        elif 701 <= alunos[i].media <= 800:
+            lista_notas['701-800'] += 1
+        elif 801 <= alunos[i].media <= 900:
+            lista_notas['801-900'] += 1
+        elif 901 <= alunos[i].media <= 1000:
+            lista_notas['901-1000'] += 1
+    
+    quantidade = [lista_notas['0-100'],
+                  lista_notas['101-200'],
+                  lista_notas['201-300'],
+                  lista_notas['301-400'],
+                  lista_notas['401-500'],
+                  lista_notas['501-600'],
+                  lista_notas['601-700'],
+                  lista_notas['701-800'],
+                  lista_notas['801-900'],
+                  lista_notas['901-1000'],
+                  ]
+
+    print('Pronto.')
+    
+    _, ax = plt.subplots(figsize=(16, 9))
+    ax.set(xlabel='Varicao das Notas', ylabel='Quantidade de Alunos')
+    plt.figure(1)
+    plt.bar(notas, quantidade)
+
+    for i, v in enumerate(quantidade):
+        plt.text(i-(len(str(v))/15), max(quantidade)/100, " "+str(v), color='black', va='center', fontweight='bold', fontsize=12)
+    
+    plt.suptitle('Notas dos {} alunos'.format(len(alunos)))
+    plt.show()
+
+
 def clear():
     input("Pressione uma tecla para continuar...")
     os.system('clear')

@@ -9,13 +9,14 @@ def menu():
 
     print('1. Gerar Alunos Aleatoriamente')
     print('2. Cadastrar Aluno Individual')
-    print('3. Ordenar com Selectioon Sort')
+    print('3. Ordenar com Selection Sort')
     print('4. Ordenar com Insertion Sort')
     print('5. Ordenar com Bubble Sort')
     print('6. Ordenar com Shell Sort')
     print('7. Ver Ranking ordenado dos Alunos')
     print('8. Ver Ranking desordenado dos Alunos')
     print('9. Comparar Metodos de Ordenacao')
+    print('10. Ver Media dos Alunos')
     print('0. Encerrar Programa')
     print('')
 
@@ -33,10 +34,14 @@ if __name__ == '__main__':
             while tamanho < 1:
                 tamanho = int(input('Tamanho nao pode ser menor que 1, tente novamente: '))
             
+            inicio = time.time()
             gerar_alunos_aleatorios(alunos, tamanho)
+            fim = time.time()
+            tempo_total = fim - inicio
+            print('{} Alunos gerados.'.format(len(alunos)))
+            print('Tempo decorrido:',round(tempo_total, 6), 's\n')
             desordenado = alunos.copy()
 
-            print('{} Alunos gerados.\n'.format(len(alunos)))
             ordenado = False
             clear()
         elif opcao == 2:
@@ -181,17 +186,24 @@ if __name__ == '__main__':
                 tipos = ['Selection Sort', 'Insertion Sort', 'Bubble Sort', 'Shell Sort']
                 tempos = [lista_tempos['Selection Sort'], lista_tempos['Insertion Sort'], lista_tempos['Bubble Sort'], lista_tempos['Shell Sort']]
 
+                _, ax = plt.subplots(figsize=(16, 9))
+                ax.set(xlabel='Metodo de Ordenacao', ylabel='Tempo (s)')
                 plt.figure(1)
                 plt.bar(tipos, tempos)
+
+                for i, v in enumerate(tempos):
+                    plt.text(i-0.4, max(tempos)/100, " "+str(v), color='black', va='center', fontweight='bold', fontsize=12)
+                
                 plt.suptitle('Tempo em segundos para ordenar {} alunos'.format(len(alunos)))
                 plt.show()
                 
                 clear()
-                
             else:
                 print('Não há nenhuma aluno cadastrado')
 
-
+        elif opcao == 10:
+            print('Opcao escolhida: Ver Media dos Alunos')
+            grafico_medias(alunos)
         elif opcao == 0:
             print('Encerrando programa')
             break

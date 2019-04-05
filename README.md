@@ -58,3 +58,5 @@ A média é calculada da seguinte maneira:
 Media = (MAT + LING + HUM + CIEN + RED) / 5
 
 O usuário também pode comparar a eficiência dos algoritmos de ordenação, usando-os individualmente ou selecionando a opção "Comparar Metodos de Ordenacao".
+
+Há também a opção de ver um gráfico com as médias dos alunos, sendo o intervalo de notas de 100 pontos, ou seja, de 0 a 100, de 101 a 200, de 201 a 300, etc.
